@@ -23,5 +23,5 @@ jobs:
       with:
         name: wholebuild #testreports
         path: |
-          build #build/reports/tests
+          build
           /tmp/junit*
