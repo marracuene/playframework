@@ -19,7 +19,7 @@ import spock.lang.Unroll
  */
 @Unroll
 class InDepthUserGuideSamplesIntegrationTest extends Specification {
-    private static final String[] VERSIONS_UNDER_TEST = ["6.0.1", "6.1.1", "6.3"]
+    private static final String[] VERSIONS_UNDER_TEST = ["6.3"]
     //private static final String[] VERSIONS_UNDER_TEST = []
 
     @Rule

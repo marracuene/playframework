@@ -8,20 +8,24 @@ import org.gradle.testkit.runner.GradleRunner
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import spock.lang.Specification
+import java.io.FileOutputStream
 
 class AbstractIntegrationTest extends Specification {
 
     @Rule
-    TemporaryFolder temporaryFolder = new TemporaryFolder()
+    TemporaryFolder temporaryFolder = new NonTemporaryFolder()
 
     File projectDir
     File buildFile
     File settingsFile
+    FileOutputStream folderLocker
 
     def setup() {
         projectDir = temporaryFolder.root
         buildFile = temporaryFolder.newFile('build.gradle')
         settingsFile = temporaryFolder.newFile('settings.gradle')
+        folderLocker = new FileOutputStream(new File(projectDir, 'block.lock'))
+        folderLocker.write("lock".getBytes())
     }
 
     protected BuildResult build(String... arguments) {
