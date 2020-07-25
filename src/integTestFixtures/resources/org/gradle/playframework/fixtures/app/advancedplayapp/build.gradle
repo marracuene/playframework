@@ -2,6 +2,10 @@ plugins {
     id 'org.gradle.playframework'
 }
 
+test {
+    maxParallelForks = 1
+}
+
 // repositories added in PlayApp class
 
 sourceSets {
