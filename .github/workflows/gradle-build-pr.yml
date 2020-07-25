@@ -22,4 +22,6 @@ jobs:
       if: failure()
       with:
         name: wholebuild #testreports
-        path: build #build/reports/tests
+        path: |
+          build #build/reports/tests
+          /tmp
